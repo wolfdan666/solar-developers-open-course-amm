@@ -62,12 +62,14 @@ impl<'info> Withdraw<'info> {
         let ratio = k2.checked_mul(1000000).ok_or(ProgramError::ArithmeticOverflow)?
             .checked_div(k).ok_or(ProgramError::ArithmeticOverflow)?;
 
+        // delta_a = a - a * ratio / 1000000
         let amount_a: u64 = (self.pool_ata_a.amount as u128)
         .checked_sub((self.pool_ata_a.amount as u128)
             .checked_mul(ratio).ok_or(ProgramError::ArithmeticOverflow)?
             .checked_div(1000000u128).ok_or(ProgramError::ArithmeticOverflow)?
         ).ok_or(ProgramError::ArithmeticOverflow)? as u64;
 
+        // delta_b = b - b * ratio / 1000000
         let amount_b: u64 = (self.pool_ata_b.amount as u128)
         .checked_sub((self.pool_ata_b.amount as u128)
             .checked_mul(ratio).ok_or(ProgramError::ArithmeticOverflow)?
