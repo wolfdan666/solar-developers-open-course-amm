@@ -8,7 +8,7 @@ pub mod signer_seeds_examples;  // Signer Seeds 三重引用详解模块
 
 pub use context::*;
 
-declare_id!("2wmWHXHy6F3Yz2CaaWNp7Bfgz4c4kpPXuHiDyVajZARu");
+declare_id!("7yyTbdSb8hMNoutaAHpvUeQALW8Hcd4oPcm9WXMR9mpb");
 
 // ========================================
 // CPI (Cross Program Invocation) 调用示例
